@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gianfranco Vega | Cyber & SysAdmin</title>
-    <meta name="description" content="Portfolio de Gianfranco Vega. SysAdmin y Especialista en Ciberseguridad.">
+    <title>Porfolio de Gianfranco</title>
+    <meta name="description" content="Portfolio de Gianfranco. SysAdmin y Ciberseguridad.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,6 +53,33 @@
         .orb-2 { bottom: 0%; right: -5%; width: 500px; height: 500px; background: #7c3aed; animation-delay: -5s; }
         @keyframes floatOrb { from { transform: translate(0, 0); } to { transform: translate(40px, 40px); } }
 
+        /* --- EFECTO DE NIEVE (COPOS) --- */
+        .snowflake {
+            position: fixed;
+            top: -20px;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-shadow: 0 0 5px #000;
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none; /* Importante para poder hacer click debajo */
+            animation-name: fall, sway;
+            animation-timing-function: linear, ease-in-out;
+            animation-iteration-count: infinite, infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes fall {
+            0% { top: -10% }
+            100% { top: 100% }
+        }
+
+        @keyframes sway {
+            0% { transform: translateX(0px); }
+            50% { transform: translateX(50px); }
+            100% { transform: translateX(0px); }
+        }
+
         h1, h2, h3 { font-family: 'Outfit', sans-serif; font-weight: 800; color: var(--text-white); letter-spacing: -0.02em; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         
@@ -74,16 +101,24 @@
         .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* --- 2. NAVBAR --- */
+        /* --- 2. NAVBAR (MODIFICADO: MÁS DELGADO) --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 40px;
+            /* SE HA REDUCIDO EL PADDING VERTICAL DE 12px A 8px PARA HACERLA MÁS DELGADA */
+            padding: 5px 40px; 
             position: fixed; width: 100%; top: 0; z-index: 9999;
             background: rgba(2, 4, 10, 0.85);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .logo { font-size: 1.8rem; font-weight: 800; color: var(--text-white); letter-spacing: -1px; }
+
+        .logo { 
+            font-family: 'Outfit', sans-serif; 
+            font-size: 1.8rem; 
+            font-weight: 800; 
+            color: var(--text-white); 
+            letter-spacing: -1px; 
+        }
         .logo span { color: var(--accent-red); } 
         
         .nav-links { display: flex; gap: 35px; align-items: center; }
@@ -121,16 +156,17 @@
             color: var(--text-white);
         }
 
+        /* --- ESPACIO DEL TEXTO DINÁMICO CORREGIDO --- */
         .hero-role-wrapper {
             font-size: 1.3rem; 
-            margin-bottom: 30px;
+            margin-bottom: 40px; 
             font-weight: 700;
-            min-height: 80px; 
             display: flex;
             flex-wrap: wrap; 
             align-items: baseline; 
             gap: 8px;
         }
+
         .static-txt { color: var(--text-white); white-space: nowrap; }
         .dynamic-txt { 
             position: relative;
@@ -153,7 +189,7 @@
             font-size: 1.1rem; 
             color: var(--text-muted); 
             max-width: 600px; 
-            margin-bottom: 40px; 
+            margin-bottom: 40px; /* Espacio exacto de 40px */
         }
 
         .hero-btns {
@@ -266,7 +302,8 @@
 
         /* --- 6. PROYECTOS --- */
         #proyectos { padding: 50px 0 150px; }
-        .section-header { text-align: center; margin-bottom: 80px; }
+        
+        .section-header { text-align: center; margin-bottom: 50px; } 
         .section-header h2 { font-size: 3rem; margin-bottom: 15px; }
 
         .projects-grid {
@@ -310,7 +347,9 @@
 
         /* --- 7. CONTACTO & FOOTER --- */
         .cta-section {
-            padding: 120px 0; text-align: center;
+            width: 100%; 
+            padding: 120px 0; 
+            text-align: center;
             border-top: var(--border-glass);
             background-image: linear-gradient(rgba(2, 4, 10, 0.85), rgba(2, 4, 10, 0.85)), url('https://securitybrief.co.uk/uploads/story/2025/04/29/techday_f_f7d4e873d6bd2cb4e3b1.webp');
             background-size: cover;
@@ -322,7 +361,9 @@
             display: inline-block; padding: 18px 45px;
             background-color: var(--accent);
             color: white; font-weight: 700; border-radius: 6px;
-            font-size: 1.1rem; margin-top: 40px; transition: 0.3s;
+            font-size: 1.1rem; 
+            margin-top: 0; 
+            transition: 0.3s;
             box-shadow: var(--accent-glow);
         }
         .cta-btn-big:hover {
@@ -332,14 +373,42 @@
             box-shadow: 0 0 40px var(--accent-glow);
         }
 
-        footer { text-align: center; padding: 50px 0; border-top: var(--border-glass); font-size: 0.9rem; color: var(--text-muted); }
-        .socials { margin-bottom: 25px; display: flex; justify-content: center; gap: 20px; }
-        .socials a {
-            width: 50px; height: 50px; border-radius: 12px;
-            background: var(--bg-card); display: flex; align-items: center; justify-content: center;
-            transition: 0.3s; color: var(--text-white); border: var(--border-glass);
+        /* ESTILOS DEL FOOTER NUEVO */
+        footer { 
+            padding: 30px 0; 
+            border-top: var(--border-glass); 
+            background-color: var(--bg-card); /* Fondo oscuro coherente */
         }
-        .socials a:hover { border-color: var(--accent); box-shadow: var(--accent-glow); transform: translateY(-5px); color: var(--accent); }
+        .footer-content {
+            display: flex;
+            justify-content: space-between; /* Texto a un extremo, iconos al otro */
+            align-items: center;
+        }
+        .socials { 
+            display: flex; 
+            gap: 15px; 
+            margin: 0; /* Sin margen inferior */
+        }
+        .socials a {
+            width: 40px; height: 40px; border-radius: 8px; /* Ligeramente más pequeños para el footer */
+            background: rgba(255,255,255,0.05); 
+            display: flex; align-items: center; justify-content: center;
+            transition: 0.3s; color: var(--text-muted); 
+            border: 1px solid transparent;
+            font-size: 1.1rem;
+        }
+        .socials a:hover { 
+            border-color: var(--accent); 
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--text-white); 
+            transform: translateY(-2px);
+        }
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0;
+            font-weight: 500;
+        }
 
         /* RESPONSIVE */
         @media (max-width: 1024px) { 
@@ -361,6 +430,9 @@
             .hero-image-container { display: block; order: -1; margin-bottom: 20px; }
             .hero-img { max-width: 280px; }
             .hero-image-bg { width: 300px; height: 300px; }
+            
+            /* Ajuste footer móvil */
+            .footer-content { flex-direction: column-reverse; gap: 20px; }
         }
     </style>
 </head>
@@ -372,9 +444,11 @@
     <nav>
         <div class="logo">G<span>V.</span></div>
         <div class="nav-links">
-            <a href="#hero">Inicio</a> <a href="#perfil">Perfil</a>
+            <a href="#hero" onclick="event.preventDefault(); document.getElementById('hero').scrollIntoView({behavior: 'smooth', block: 'center'});">Inicio</a>
+            
+            <a href="#perfil">Perfil</a>
             <a href="#proyectos">Proyectos</a>
-            <a href="#contacto">Contactar</a>
+            <a href="#contacto">Contacto</a>
         </div>
     </nav>
 
@@ -398,11 +472,12 @@
                 </p>
                 
                 <div class="hero-btns">
-                    <a href="https://drive.google.com/file/d/1TYFJuKKkeiwT4x3WNr1pI6DnezaSx-ku/view?usp=sharing" target="_blank" class="btn-dark">
-                        Descargar CV <i class="fa-solid fa-download"></i>
+                    <a href="#proyectos" class="btn-primary">
+                        Ver Portfolio <i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <a href="#contacto" class="btn-primary">
-                        Contáctame
+
+                    <a href="cv_gianfranco.pdf" download="Gianfranco_Vega_CV.pdf" class="btn-dark">
+                        Descargar CV <i class="fa-solid fa-download"></i>
                     </a>
                 </div>
             </div>
@@ -461,8 +536,8 @@
 
     <section id="proyectos" class="container">
         <div class="section-header reveal">
-            <h2>Proyectos Selectos</h2>
-            <p style="color: var(--text-muted);">Casos de estudio reales y herramientas propias.</p>
+            <h2>Proyectos</h2>
+            <p style="color: var(--text-muted);">Casos de estudio y herramientas propias.</p>
         </div>
 
         <div class="projects-grid">
@@ -471,18 +546,20 @@
                     <img src="https://ciberseguridad.com/wp-content/uploads/2020/06/ataques-ciberseguridad-tiempo-real.gif" alt="Forense">
                 </div>
                 <div class="project-info">
-                    <span class="role-tag">Experiencia Real</span>
+                    <span class="role-tag">Experiencia</span>
                     <h3>Analista Forense Digital</h3>
                     <div class="rubric-item"><strong>Contexto:</strong> Prácticas en Confianza23 investigando incidentes.</div>
                     <div class="rubric-item"><strong>Acción:</strong> Análisis forense en Oracle 12c y volcado de memoria RAM.</div>
                     <div class="rubric-item"><strong>Resultados:</strong> Detección de intrusiones y aseguramiento de evidencias.</div>
-                    <div class="project-footer"><span>Tecnologías: FTK, Autopsy, Volatility</span></div>
+                    <div class="project-footer">
+                        <a href="Proyecto_Oracle12c.pdf" target="_blank" class="btn-link">Ver Proyecto <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
 
             <a href="https://github.com/astra-pi/OSINT" target="_blank" class="project-card reveal">
                 <div class="project-img">
-                    <img src="https://static.wixstatic.com/media/bba423_2bdfb5cd195c42198b4b0d0621192c74~mv2.gif/v1/fill/w_1600,h_849,al_c/bba423_2bdfb5cd195c42198b4b0d0621192c74~mv2.gif" alt="OSINT">
+                    <img src="https://miro.medium.com/v2/resize:fit:786/format:webp/1*-u5ajmzAwPn_Cdvf9d2mUQ.gif" alt="OSINT">
                 </div>
                 <div class="project-info">
                     <span class="role-tag">Investigación</span>
@@ -514,7 +591,7 @@
         <div class="container-narrow">
             <h2 style="font-size: 3rem; margin-bottom: 20px;">¿Tienes un desafío?</h2>
             <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px;">
-                Estoy disponible para unirme a equipos de Ciberseguridad o Infraestructura.
+                Estoy disponible para unirme a equipos Infraestructura IT y CiberSeguridad.
             </p>
             <a href="mailto:gianfranco17es@gmail.com" class="cta-btn-big">
                 Iniciar Conversación
@@ -523,12 +600,20 @@
     </section>
 
     <footer>
-        <div class="container">
+        <div class="container footer-content">
+            <p>© 2025 Gianfranco Vega</p>
+
             <div class="socials">
-                <a href="https://linkedin.com/in/gianfrancovg" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://github.com/astra-pi" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="cv_gianfranco.pdf" download="Gianfranco_Vega_CV.pdf" title="Descargar CV">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </a>
+                <a href="https://github.com/astra-pi" target="_blank" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/gianfrancovg" target="_blank" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
             </div>
-            <p>© 2025 Gianfranco .V</p>
         </div>
     </footer>
 
@@ -554,7 +639,7 @@
         setTimeout(reveal, 100);
 
         // ============================================
-        // SCRIPT DE TEXTO DINÁMICO (CORREGIDO)
+        // SCRIPT DE TEXTO DINÁMICO
         // ============================================
         const dynamicText = document.querySelector(".dynamic-txt");
         
@@ -571,41 +656,74 @@
             const currentWord = words[wordIndex];
             const currentText = currentWord.text;
             
-            // Actualizar el DOM
+            // PRIMERO: Calcular el nuevo índice
+            if (isDeleting) {
+                charIndex--;
+            } else {
+                charIndex++;
+            }
+
+            // SEGUNDO: Pintar el texto actualizado
             dynamicText.textContent = currentText.substring(0, charIndex);
             dynamicText.style.color = currentWord.color;
 
-            // Lógica de Velocidad y Estado
+            // TERCERO: Comprobar el estado y definir velocidad para la SIGUIENTE vuelta
             let typeSpeed = 100; // Velocidad base de escritura
 
-            if (isDeleting) {
-                // BORRANDO
-                charIndex--;
-                typeSpeed = 50; // Borrar es más rápido
-            } else {
-                // ESCRIBIENDO
-                charIndex++;
-                typeSpeed = 100; // Escribir a velocidad normal
-            }
-
-            // Chequeos de final de palabra o borrado completo
             if (!isDeleting && charIndex === currentText.length) {
-                // Terminó de escribir la palabra completa
+                // Ha terminado de escribir la palabra COMPLETA
                 isDeleting = true;
-                typeSpeed = 2000; // Pausa larga al final para leer
+                typeSpeed = 2000; // Pausa larga para leer
             } else if (isDeleting && charIndex === 0) {
-                // Terminó de borrar todo
+                // Ha terminado de borrar
                 isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length; // Pasar a la siguiente palabra
-                typeSpeed = 500; // Pausa corta antes de empezar a escribir la nueva
+                wordIndex = (wordIndex + 1) % words.length; 
+                typeSpeed = 500; // Pausa corta antes de empezar la nueva
+            } else if (isDeleting) {
+                typeSpeed = 50; // Velocidad de borrado
             }
 
-            // Llamada recursiva ÚNICA (soluciona el problema de velocidad infinita)
+            // Llamada recursiva
             setTimeout(typeEffect, typeSpeed);
         }
 
         // Iniciar
         typeEffect();
+
+        // ============================================
+        // SCRIPT GENERADOR DE COPOS (NIEVE)
+        // ============================================
+        function createSnowflakes() {
+            const container = document.body;
+            const flakesCount = 40; // Número de copos
+            
+            for (let i = 0; i < flakesCount; i++) {
+                let flake = document.createElement('div');
+                flake.className = 'snowflake';
+                flake.innerHTML = '❄';
+                
+                // Posición horizontal aleatoria
+                flake.style.left = Math.random() * 100 + 'vw';
+                
+                // Duración de caída aleatoria (entre 10s y 20s)
+                flake.style.animationDuration = (Math.random() * 10 + 10) + 's'; 
+                
+                // Retraso aleatorio
+                flake.style.animationDelay = (Math.random() * 10) + 's';
+                
+                // Opacidad aleatoria
+                flake.style.opacity = Math.random() * 0.5 + 0.2; 
+                
+                // Tamaño aleatorio MÁS PEQUEÑO (aprox entre 4px y 12px)
+                flake.style.fontSize = (Math.random() * 8 + 4) + 'px';
+                
+                container.appendChild(flake);
+            }
+        }
+        
+        // Ejecutar creación de copos
+        createSnowflakes();
+
     </script>
 
 </body>
